@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cal</title>
+</head>
+<body>
+
+<div class="calcolator">
+    <input disabled type="text" id="output" placeholder="0"> <br> <br>
+    <button class="button gray" class="button" onclick="Clear()">AC</button>
+    <button class="button gray" onclick="Delete()">Del</button>
+    <button class="button gray" onclick="display('%')">%</button>
+    <button class="button yellow" onclick="display('/')">/</button> <br> <br>
+    <button class="button" onclick="display('7')">7</button>
+    <button class="button" onclick="display('8')">8</button>
+    <button class="button" onclick="display('9')">9</button>
+    <button class="button yellow" onclick="display('*')">x</button> <br> <br>
+    <button class="button" onclick="display('4')">4</button>
+    <button class="button" onclick="display('5')">5</button>
+    <button class="button" onclick="display('6')">6</button> 
+    <button class="button yellow" onclick="display('-')">-</button> <br> <br>
+    <button class="button" onclick="display('1')">1</button>
+    <button class="button" onclick="display('2')">2</button>
+    <button class="button" onclick="display('3')">3</button> 
+    <button class="button yellow" onclick="display('+')">+</button> <br> <br>
+    <button class="button zero-button" onclick="display('0')">0</button>
+    <button class="button" onclick="display('.')">.</button>
+    <button class="button yellow" onclick="calc()">=</button>
+</div>
+
+
+ <script>
+    let output = document.getElementById("output");
+    function display(num) {
+        output.value += num;
+    }
+    function Clear() {
+        output.value = ''
+    }
+    function Delete() {
+        output.value = output.value.slice(0, -1);
+    }
+    function calc() {
+        try{
+            output.value = eval(output.value)
+        }
+        catch(err){
+            output.value = "Error"
+        }
+    }
+ </script>
+</body>
+</html>
